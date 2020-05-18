@@ -1,0 +1,28 @@
+1.https://iotdashboard.mcci.com/apiserver/wr?1
+  This query used to get the list databases from the weradiate
+  Here '1' is the function code - Show Databases
+
+2.https://iotdashboard.mcci.com/apiserver/wr?2&dbName
+  function code 2- List the Measurements of requested database (dbName)
+
+3.https://iotdashboard.mcci.com/apiserver/wr?3&dbName&measName
+  List the field keys (measName - Measurement Name)
+
+4.https://iotdashboard.mcci.com/apiserver/wr?4&dbName&measName
+  Show the all data available in the requested measurement (SELECT * from Measurement)
+
+5.https://iotdashboard.mcci.com/apiserver/wr?5&dbName&measName&parameter
+  Show the requested parameter (vBat)- (SELECT vBat from Measurement)
+
+6.https://iotdashboard.mcci.com/apiserver/wr?6&dbName&measName&parameter&date
+  Show the requested parametr for a selected date
+  date format should be (YYYY-MM-DD) 
+
+7.https://iotdashboard.mcci.com/apiserver/wr?7&dbName&measName&parameter&fromDate&toDate
+  Show the selected parameter for From date to To Date
+
+8.https://iotdashboard.mcci.com/apiserver/wr?8&dbName&measName&P1&P2&date
+  Same as function 6, You can request two parameters (P1=temp, P2=vBat)
+
+9.https://iotdashboard.mcci.com/apiserver/wr?9&dbName&measName&P1&P2&fromDate&toDate
+  Same as function 7, You can request two parameters

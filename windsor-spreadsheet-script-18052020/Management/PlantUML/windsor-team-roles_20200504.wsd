@@ -1,0 +1,90 @@
+@startuml
+participant "windsor project" as windsor
+Participant role
+actor vel
+actor mukesh
+actor seenivasan
+actor revathy
+actor prabhu
+actor murugan
+actor siva
+
+
+'Convo between windsor and vel
+windsor -> vel : Project requriement info
+activate windsor
+return co-ordinate team meeting
+deactivate windsor
+
+'Convo between Windsor and team
+
+activate role
+role -> vel : set process and manage
+role -> mukesh : co-ordinate the project and deliverables
+role -> seenivasan : App server management
+role -> revathy : VBA script and data mapping
+role -> prabhu : plugin design and template
+role -> murugan : App container maintance and support
+role -> siva : Plugin and App container connection protocol
+deactivate role
+
+'Individual responsibilites and action items
+
+vel -> vel : Prepare the project plan
+vel -> vel : set action items and deliveries
+vel -> vel : Manage the process
+
+mukesh -> mukesh : Interact with team and get regular status update
+mukesh -> mukesh : Follow-up to get to-do list
+mukesh -> mukesh : Update the Tracking sheet
+mukesh -> mukesh : Support team to use Gitlab
+mukesh -> mukesh : Ensure everyone follow the process
+
+seenivasan -> seenivasan : Prepare the node.js script
+seenivasan -> seenivasan : Preapre and table/list that maintain template vs db vs no.of devices list w.r.t timestamp
+seenivasan -> seenivasan : Https post and response implementation access
+seenivasan -> seenivasan : Prepare Authentication algorithem
+seenivasan -> seenivasan : Collect and decode the querys from Plugin
+seenivasan -> seenivasan : Access Influxdb
+seenivasan -> seenivasan : Preare query (One data (median) /per day) based on the plugin's data query
+seenivasan -> seenivasan : Forward the data to plugin via https response (if valid connection is there)
+
+prabhu -> prabhu : Prepare the plugin layout and template format
+prabhu -> prabhu : Prepare the relaiable structure to interact with macros
+prabhu -> prabhu : Prepare the plugin installation doc
+prabhu -> prabhu : Prepare plugin user guide
+
+revathy -> revathy : Active code to interact with Plugin 
+revathy -> revathy : VBA macros to frame the connection query and data query
+revathy -> revathy : Prepare https packet to send the query to App container
+revathy -> revathy : Get and decode the validate https response packet
+revathy -> revathy : VBA macros to plot the data in respective template
+
+murugan -> murugan : Prepare and maintain the app container to run node.js script
+murugan -> murugan : Prepare the secure Https interface
+murugan -> murugan : Mechanisam to maintain the users list
+murugan -> murugan : Maybe another space for data normalization container  
+
+siva -> siva : Look at improve the security between app container and plugin connection
+siva -> siva : Research and Frame the proper HTTPs communication model
+siva -> siva : Preapare the list of standard error code and response codes need to use.
+
+'convo between the team members
+vel -> mukesh : Support in co-ordination
+vel -> mukesh : Gitlab maintanance support 
+
+prabhu -> revathy : provide formatted templates location
+prabhu -> revathy : provide buttons actions list
+
+revathy -> seenivasan : provide the connection query with user/password
+seenivasan -> revathy : Authenticate the connection and provide token else error code
+revathy -> prabhu : Forward connection pass or error code info to plugin
+revathy -> seenivasan : provide the data request query format with token, template name, date range
+seenivasan -> revathy : check for validity and get the required data from db and forward to plugin
+revathy -> prabhu : At plugin VBA script decode the data and put in respective cell. Plugin ensure that and end the process 
+
+'Convo between windsor and mukesh
+activate windsor
+mukesh -> windsor : **Project Delivery**
+deactivate windsor
+@enduml
